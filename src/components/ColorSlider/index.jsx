@@ -1,18 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './style.css';
-//  Vytvořte nejprve komponentu ColorSlider zobrazující jeden posuvník. Přesuňte do složky s komponentou správné CSS styly. Komponenta ColorSlider bude mít dvě props: baseColor a colorName. Prop baseColor udává, jakou posuvník ovládá barvu, tedy red, green nebo blue. Prop colorName udává zobrazený název barvy.
 
 export const ColorSlider = ({ baseColor, colorName }) => {
+  const [sliderValue, setSliderValue] = useState(0);
+
+  const handleSliderChange = (e) => {
+    setSliderValue(e.target.value);
+  };
   return (
     <>
-      <label for="blue">{colorName}</label>
+      <label htmlFor={baseColor}>{colorName}</label>
       <input
         type="range"
-        class="slider slider--blue"
-        id="blueSlider"
+        className={`slider slider--${baseColor}`}
+        id={`${baseColor}Slider`}
         min="0"
         max="255"
-        value="0"
+        value={sliderValue}
+        onChange={handleSliderChange}
       />
     </>
   );

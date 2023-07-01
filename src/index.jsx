@@ -5,14 +5,14 @@ import { ColorSlider } from './components/ColorSlider';
 
 const App = () => {
   return (
-    <div class="color-panel">
+    <div className="color-panel">
       <h1>Mixér barev</h1>
-      <div class="sliders">
-        <ColorSlider colorName={'Červená'} />
-        <ColorSlider colorName={'Zelená'} />
-        <ColorSlider colorName={'Modrá'} />
+      <div className="sliders">
+        <ColorSlider colorName={'Červená'} baseColor={'red'} />
+        <ColorSlider colorName={'Zelená'} baseColor={'green'} />
+        <ColorSlider colorName={'Modrá'} baseColor={'blue'} />
       </div>
-      <div class="color-box" id="color-box"></div>
+      <div className="color-box" id="color-box"></div>
     </div>
   );
 };
