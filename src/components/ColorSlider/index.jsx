@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './style.css';
 
-export const ColorSlider = ({ baseColor, colorName }) => {
+export const ColorSlider = ({ baseColor, colorName, onValueChange }) => {
   const [sliderValue, setSliderValue] = useState(0);
-
   const handleSliderChange = (e) => {
+    onValueChange(e.target.value);
     setSliderValue(e.target.value);
   };
   return (
