@@ -4,14 +4,9 @@ import './style.css';
 import { ColorSlider } from './components/ColorSlider';
 
 const App = () => {
-  const [redValue, setRedValue] = useState('');
-  const [greenValue, setGreenValue] = useState('');
-  const [blueValue, setBlueValue] = useState('');
-  const setColorValue = (value) => {
-    console.log(value);
-  };
-  console.log(redValue, greenValue, blueValue);
-  const color = `rgb(${redValue}, ${greenValue}, ${blueValue})`;
+  const [redValue, setRedValue] = useState(0);
+  const [greenValue, setGreenValue] = useState(0);
+  const [blueValue, setBlueValue] = useState(0);
   return (
     <div className="color-panel">
       <h1>Mixér barev</h1>
@@ -19,23 +14,31 @@ const App = () => {
         <ColorSlider
           colorName={'Červená'}
           baseColor={'red'}
-          onValueChange={setColorValue}
+          onValueChange={(value) => {
+            setRedValue(value);
+          }}
         />
         <ColorSlider
           colorName={'Zelená'}
           baseColor={'green'}
-          onValueChange={setColorValue}
+          onValueChange={(value) => {
+            setGreenValue(value);
+          }}
         />
         <ColorSlider
           colorName={'Modrá'}
           baseColor={'blue'}
-          onValueChange={setColorValue}
+          onValueChange={(value) => {
+            setBlueValue(value);
+          }}
         />
       </div>
       <div
         className="color-box"
         id="color-box"
-        style={{ background: { color } }}
+        style={{
+          backgroundColor: `rgb(${redValue}, ${greenValue}, ${blueValue})`,
+        }}
       ></div>
     </div>
   );
